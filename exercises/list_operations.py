@@ -20,4 +20,17 @@ def student_list_operations(students, operation, *args):
     - 操作后的学生列表
     """
     # 请在下方编写代码
-    pass 
+    if operation == "add":
+        return students + list(args)
+    elif operation == "remove":
+        try:
+            for items in args:
+                students.remove(items)
+            return students
+        except ValueError:
+            return students
+    elif operation == "update":
+        args1,args2 = args
+        index = students.index(args1)
+        students[index] = args2
+        return students
